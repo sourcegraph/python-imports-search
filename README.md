@@ -1,6 +1,6 @@
 # Python imports search
 
-Lets you easily search for all files using a JS package. Adds a new operator `js.depends:` for all import statements of the package passed to the operator. This extension also adds a \"See all usages\" link at the end of import statement lines, which will execute the `js.depends` search for the relevant package.
+Lets you easily search for all files using a python module. Adds a new operator `py.imports:` for all import statements of the module passed to the operator. This extension also adds a \"See all usages\" link at the end of import statement lines, which will execute the `py.imports` search for the relevant module.
 
 ## Prerequisites
 
