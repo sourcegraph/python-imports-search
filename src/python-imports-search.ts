@@ -12,13 +12,16 @@ export function activate(): void {
                const singleImport = '^import\\s' + pyPkg + '$'
                const namedImport = '^import\\s' + pyPkg + '\\sas\\s[^\\s]*'
                const scopedImport = '^from\\s(.*)\\simport\\s(.*)' + pyPkg
-               return query.replace(pyImportsRegex  , `(${singleImport}|${namedImport}|${scopedImport})`)
+               return query.replace(pyImportsRegex  , `(${singleImport}|${namedImport}|${scopedImport}) lang:python `)
            }
            return query
         }
    })
 
    sourcegraph.workspace.onDidOpenTextDocument.subscribe(doc => {
+       if (doc.languageId !== 'python') {
+            return
+        }
         from(doc.text.split('\n')).pipe(
             concatMap(
                 (line, lineNumber) => {
