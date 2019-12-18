@@ -39,9 +39,10 @@
     "lnfs-cli": "^2.1.0",
     "mkdirp": "^0.5.1",
     "parcel-bundler": "^1.10.3",
-    "sourcegraph": "^18.4.0",
+    "rxjs": "^6.5.3",
+    "sourcegraph": "23.0.1",
     "tslint": "^5.11.0",
-    "typescript": "^3.1.4"
+    "typescript": "^3.7.3"
   },
   "dependencies": {
     "@sourcegraph/prettierrc": "^3.0.1"
