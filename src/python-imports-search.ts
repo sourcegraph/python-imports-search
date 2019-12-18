@@ -1,8 +1,11 @@
 import { EMPTY, from, of } from 'rxjs'
 import { concatMap, filter, map, switchMap, toArray } from 'rxjs/operators'
 import * as sourcegraph from 'sourcegraph'
+import { resolveSettings, Settings } from './settings'
 
 const decorationType = sourcegraph.app.createDecorationType && sourcegraph.app.createDecorationType()
+const settings = resolveSettings(sourcegraph.configuration.get<Settings>().value)
+
 export function activate(): void {
     sourcegraph.search.registerQueryTransformer({
         transformQuery: (query: string) => {
@@ -37,6 +40,10 @@ export function activate(): void {
           )
 
     editorsChanges.subscribe(codeEditor => {
+        if (!settings['pyImports.showAllUsagesLinks']) {
+            return
+        }
+
         const document = codeEditor[0].document
         if (document.languageId !== 'python') {
             return
@@ -71,7 +78,7 @@ export function activate(): void {
                                 ),
                                 after: {
                                     contentText: 'See all usages',
-                                    linkURL: '/search?q=py.imports:' + match.pkgName,
+                                    linkURL: '/search?q=py.imports:' + match.pkgName + '&patternType=regexp',
                                     backgroundColor: 'pink',
                                     color: 'black',
                                 },
