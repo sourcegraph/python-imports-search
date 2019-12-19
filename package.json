@@ -34,6 +34,7 @@
     "last 1 Safari versions"
   ],
   "devDependencies": {
+    "@sourcegraph/prettierrc": "^3.0.1",
     "@sourcegraph/tsconfig": "^4.0.0",
     "@sourcegraph/tslint-config": "^13.4.0",
     "lnfs-cli": "^2.1.0",
@@ -44,7 +45,5 @@
     "tslint": "^5.11.0",
     "typescript": "^3.7.3"
   },
-  "dependencies": {
-    "@sourcegraph/prettierrc": "^3.0.1"
-  }
+  "dependencies": {}
 }
