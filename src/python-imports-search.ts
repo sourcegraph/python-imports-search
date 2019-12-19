@@ -58,7 +58,7 @@ export function activate(
                 }
 
                 const matches: { lineNumber: number; pkgName: string }[] = []
-                if (codeEditor && document.text) {
+                if (document.text) {
                     const lines = document.text.split('\n')
                     lines.map((line, lineNumber) => {
                         const pyModRegex = /^import\s([^\s]*)$|^import\s([^\s]*)\sas\s[^\\s]*|^from\s[^\s]*\simport\s([^\s^,]*)/
