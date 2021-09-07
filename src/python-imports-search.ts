@@ -52,6 +52,10 @@ export function activate(
                     return
                 }
 
+                if (codeEditor.type !== 'CodeEditor') {
+                    return
+                }
+
                 const document = codeEditor.document
                 if (document.languageId !== 'python') {
                     return
@@ -61,7 +65,8 @@ export function activate(
                 if (document.text) {
                     const lines = document.text.split('\n')
                     lines.map((line, lineNumber) => {
-                        const pyModRegex = /^import\s([^\s]*)$|^import\s([^\s]*)\sas\s[^\\s]*|^from\s[^\s]*\simport\s([^\s^,]*)/
+                        const pyModRegex =
+                            /^import\s([^\s]*)$|^import\s([^\s]*)\sas\s[^\\s]*|^from\s[^\s]*\simport\s([^\s^,]*)/
                         const match = pyModRegex.exec(line)
                         if (match && match.length > 1) {
                             // The match index depends on which regex pattern actually produced a match
