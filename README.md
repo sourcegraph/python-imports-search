@@ -1,5 +1,14 @@
 # Python imports search
 
+## ⚠️ Deprecation notice
+
+**Sourcegraph extensions have been deprecated with the September 2022 Sourcegraph
+release. [Learn more](https://docs.sourcegraph.com/extensions/deprecation).**
+
+The repo and the docs below are kept to support older Sourcegraph versions.
+
+## Description
+
 Lets you easily search for all files using a python module. Adds a new operator `py.imports:` for all import statements of the module passed to the operator.
 
 NOTE: regular expression search mode is required for the `py.imports` keyword to work. The extension automatically appends `patternType:regexp` to queries containing `py.imports`.
