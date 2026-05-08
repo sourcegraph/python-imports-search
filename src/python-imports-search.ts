@@ -1,5 +1,4 @@
-import { from, Subscription } from 'rxjs'
-import { filter, map, switchMap } from 'rxjs/operators'
+import { filter, from, map, Subscription, switchMap } from 'rxjs'
 import sourcegraph, { ExtensionContext } from 'sourcegraph'
 import { resolveSettings, Settings } from './settings'
 
